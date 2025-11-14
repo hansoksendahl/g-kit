@@ -1,20 +1,17 @@
 import { Text } from 'ink'
-import { useEffect, useState, type ReactElement } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
 import runCommand from '../utils/run-command'
 import type { ProcessCommandArg } from '../utils/process-command'
 import ErrorText from './error-text'
 
-export type SuccessRenderProp = (response?: string) => ReactElement
+export type SuccessRenderProp = (response?: string) => ReactNode
 
-export type RunProps<A extends SuccessRenderProp> = {
+export type RunProps = {
 	command: [string, ...ProcessCommandArg[]]
-	onSuccess?: A
+	onSuccess?: SuccessRenderProp
 }
 
-const Run = <A extends SuccessRenderProp>({
-	command,
-	onSuccess,
-}: RunProps<A>) => {
+const Run = ({ command, onSuccess }: RunProps) => {
 	const [output, setOutput] = useState<string | null>(null)
 	const [error, setError] = useState<Error | null>(null)
 

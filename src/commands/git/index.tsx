@@ -4,6 +4,7 @@ import GitWhich from './git-which'
 import GitAddAll from './git-add-all'
 import GitCommit from './git-commit'
 import GitBranch from './git-branch'
+import GitPush from './git-push'
 
 const {
 	positionals: [_dir, _file, command],
@@ -19,6 +20,9 @@ const Git = () => {
 		}
 		case 'branch': {
 			return <GitBranch />
+		}
+		case 'push': {
+			return <GitPush />
 		}
 		case 'which': {
 			return <GitWhich />

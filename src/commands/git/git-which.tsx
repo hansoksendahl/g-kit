@@ -1,7 +1,9 @@
-import Run from '../../components/run'
+import Run, { type RunProps } from '../../components/run'
 
-const GitWhich = () => (
-	<Run command={['git', 'branch', { 'show-current': true }]} />
+type GitWhichProps = Omit<RunProps, 'command'>
+
+const GitWhich = (props: GitWhichProps) => (
+	<Run {...props} command={['git', 'branch', { 'show-current': true }]} />
 )
 
 export default GitWhich
