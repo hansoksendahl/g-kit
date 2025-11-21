@@ -33,7 +33,7 @@ const Run = ({ command, onSuccess }: RunProps) => {
 		onSuccess ? (
 			onSuccess(output)
 		) : (
-			<Text>{output.slice(0, -1)}</Text>
+			<Text>{output}</Text>
 		)
 	) : (
 		error && <ErrorText>{error}</ErrorText>

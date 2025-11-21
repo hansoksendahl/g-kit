@@ -16,7 +16,7 @@ const runCommand = async (command: string, ...args: ProcessCommandArg[]) => {
 	})
 
 	if (exitCode === null || exitCode === 0) {
-		return await new Response(stdout).text()
+		return (await new Response(stdout).text()).slice(0, -1)
 	} else {
 		const error = await new Response(stderr).text()
 
